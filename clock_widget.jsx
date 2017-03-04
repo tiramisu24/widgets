@@ -7,11 +7,16 @@ class ClockWidget extends React.Component{
     this.state = {
       date: new Date()
     }
+
     this.printDate = this.printDate.bind(this);
 
   }
   componentDidMount(){
-    setInterval(this._tick.bind(this), 1000);
+    this.id = setInterval(this._tick.bind(this), 1000);
+  }
+  componentWillUnmount(){
+    this.id.clearInterval();
+
   }
 
   _tick(){
@@ -25,8 +30,19 @@ class ClockWidget extends React.Component{
 
   render(){
     // debugger;
+    let hours = this.state.date.getHours();
+    let min = this.state.date.getMinutes();
+    let sec = this.state.date.getSeconds();
+    hours = (hours<10)? `0${hours}` : hours;
+    min = (min<10)? `0${min}` : min;
+    sec = (sec<10)? `0${sec}` : sec;
     return(
-      <h1>Current Date: {this.printDate()}</h1>
+      <div>
+        <div>
+          <h1>Current Time: {hours}:{min}:{sec}</h1>
+        </div>
+        <h1>Current Date: {this.printDate()}</h1>
+      </div>
     );
   }
 
