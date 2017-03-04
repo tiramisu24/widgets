@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", e => {
   let tabs = <Tabs data={allHash}/>;
   let weather = <Weather/>;
   let clock = <ClockWidget/>;
+  // debugger
   const root = document.getElementById("root");
   ReactDOM.render(Widgets(tabs, weather,clock), root);
 });
