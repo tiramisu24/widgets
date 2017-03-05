@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import Tabs from './tabs';
 import Weather from './weather';
 import ClockWidget from './clock_widget'
+import AutoComplete from './autocomplete'
 
 
 
 document.addEventListener("DOMContentLoaded", e => {
   let title = ["cheesecake", "tiramisu", "real chia pudding"];
   let content = ["this is cheesy", "this is miso", "this is pudding"];
-  // debugger
+  let names = ["aba", "bcd", "csdf"];
   let allHash = [];
 
   for (let i = 0; i <title.length; i++) {
@@ -22,9 +23,9 @@ document.addEventListener("DOMContentLoaded", e => {
   let tabs = <Tabs data={allHash}/>;
   let weather = <Weather/>;
   let clock = <ClockWidget/>;
-  // debugger
+  let autocomplete = <AutoComplete names={names}/>;
   const root = document.getElementById("root");
-  ReactDOM.render(Widgets(tabs, weather,clock), root);
+  ReactDOM.render(Widgets(tabs, autocomplete,clock), root);
 });
 
-const Widgets = (tabs, weather, clock) => <div>{tabs}{clock}{weather}</div>;
+const Widgets = (tabs, autocomplete, clock) => <div>{tabs}{clock}{autocomplete}</div>;

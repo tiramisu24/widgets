@@ -7,21 +7,27 @@ body, header, ul, article, h1{
   margin: 0;
   padding: 0;
 }
+.Tab, .Clock, .Weather{
+  margin:20px;
+  width: 40%;
 
-.Tab{
-  width: 50%;
 }
+
 
 .Tab > ul{
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid grey;
+  width: 100%;
 }
 
 .Tab > ul > h1 {
+  font-size: 14px;
   border: 1px solid grey;
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   border-bottom: none;
+  width: 33%;
   background-color: #789db4;
 }
 
@@ -29,4 +35,21 @@ body, header, ul, article, h1{
   height: 100px;
   background-color: cornflowerblue;
   border: 2px solid grey;
+}
+
+
+/*clock*/
+.Clock{
+  text-align: center;
+  background-color: grey;
+}
+
+.Clock < h1{
+  background-color: pink;
+  font-family: fantasy;
+}
+
+.Weather {
+  background-color: cornflowerblue;
+
 }

@@ -4,12 +4,13 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-     "start": "webpack-dev-server --inline"
+    "start": "webpack-dev-server --inline"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "react-addons-css-transition-group": "^15.4.2",
     "webpack-dev-server": "^2.4.1"
   }
 }

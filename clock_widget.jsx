@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 class ClockWidget extends React.Component{
   constructor(){
     super();
-    this.state = {
+    this.time = {
       date: new Date()
     }
 
@@ -13,10 +13,10 @@ class ClockWidget extends React.Component{
   }
   componentDidMount(){
     this.id = setInterval(this._tick.bind(this), 1000);
+
   }
   componentWillUnmount(){
     this.id.clearInterval();
-
   }
 
   _tick(){
@@ -24,36 +24,25 @@ class ClockWidget extends React.Component{
   }
 
   printDate(){
-    // debugger;
-    return this.state.date.toDateString();
+    return this.time.date.toDateString();
   }
 
   render(){
-    // debugger;
-    let hours = this.state.date.getHours();
-    let min = this.state.date.getMinutes();
-    let sec = this.state.date.getSeconds();
+    let hours = this.time.date.getHours();
+    let min = this.time.date.getMinutes();
+    let sec = this.time.date.getSeconds();
     hours = (hours<10)? `0${hours}` : hours;
     min = (min<10)? `0${min}` : min;
     sec = (sec<10)? `0${sec}` : sec;
     return(
-      <div>
-        <div>
-          <h1>Current Time: {hours}:{min}:{sec}</h1>
-        </div>
+      <div className = "Clock">
+        Clock
+        <h1>Current Time: {hours}:{min}:{sec}</h1>
         <h1>Current Date: {this.printDate()}</h1>
       </div>
     );
   }
 
-  // render(){
-  //   return (
-  //     <div className="Clock">
-  //
-  //       // <h1>{this.state.date}</h1>
-  //     </div>
-  //   );
-  // }
 }
 
 export default ClockWidget;
